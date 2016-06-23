@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GF.Orleans", "GF.Orleans\GF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GF.Orleans.Storage.MongoDB", "GF.Orleans.Storage.MongoDB\GF.Orleans.Storage.MongoDB.csproj", "{82DDC043-35EB-4D2C-88BB-1566114872AE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{46C1C240-9478-401B-B6C2-3BFC9F9FB0A5}"
+EndProject
+Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "GF.Orleans", "NuGet\GF.Orleans\GF.Orleans.nuproj", "{43B8E790-1060-4C67-BA2E-453DD6B11AB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +25,15 @@ Global
 		{82DDC043-35EB-4D2C-88BB-1566114872AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82DDC043-35EB-4D2C-88BB-1566114872AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82DDC043-35EB-4D2C-88BB-1566114872AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43B8E790-1060-4C67-BA2E-453DD6B11AB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43B8E790-1060-4C67-BA2E-453DD6B11AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43B8E790-1060-4C67-BA2E-453DD6B11AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43B8E790-1060-4C67-BA2E-453DD6B11AB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{43B8E790-1060-4C67-BA2E-453DD6B11AB4} = {46C1C240-9478-401B-B6C2-3BFC9F9FB0A5}
 	EndGlobalSection
 EndGlobal

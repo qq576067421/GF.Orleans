@@ -6,19 +6,8 @@
         <Deactivation AgeLimit="300s"/>
       </Defaults>
     </Application>
-    <!--<SeedNode Address="localhost" Port="11111" />-->
-    <!--<Liveness LivenessEnabled="true" LivenessType="ZooKeeper" />-->
-    <!--
-    <SystemStore SystemStoreType="ZooKeeper" DeploymentId="TexasPoker"
-      DataConnectionString="139.196.105.80:2181"/>
-    -->
-    <!--
-    <SystemStore SystemStoreType="SqlServer" DeploymentId="TexasPoker"
-      DataConnectionString="Data Source =121.40.153.103\SQLExpress;Initial Catalog =TexasPoker;User Id =sa;Password =123321;"/>
-    -->
-    <!--<ReminderService ReminderServiceType ="ReminderTableGrain"/>-->
-    <SystemStore SystemStoreType="None" DataConnectionString="http://localhost:8500" DeploymentId="TexasPoker">
-    </SystemStore>
+    <SeedNode Address="localhost" Port="11111" />
+    <ReminderService ReminderServiceType ="ReminderTableGrain"/>
     <StorageProviders>
       <Provider Type="Orleans.Storage.MemoryStorage" Name="MemoryStore" />
       <Provider Type="Orleans.Storage.MemoryStorage" Name="PubSubStore" />
