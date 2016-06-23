@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OrleansConfiguration xmlns="urn:orleans">
+  <Globals>
+    <Application>
+      <Defaults>
+        <Deactivation AgeLimit="300s"/>
+      </Defaults>
+    </Application>
+    <!--<SeedNode Address="localhost" Port="11111" />-->
+    <!--<Liveness LivenessEnabled="true" LivenessType="ZooKeeper" />-->
+    <!--
+    <SystemStore SystemStoreType="ZooKeeper" DeploymentId="TexasPoker"
+      DataConnectionString="139.196.105.80:2181"/>
+    -->
+    <!--
+    <SystemStore SystemStoreType="SqlServer" DeploymentId="TexasPoker"
+      DataConnectionString="Data Source =121.40.153.103\SQLExpress;Initial Catalog =TexasPoker;User Id =sa;Password =123321;"/>
+    -->
+    <!--<ReminderService ReminderServiceType ="ReminderTableGrain"/>-->
+    <SystemStore SystemStoreType="None" DataConnectionString="http://localhost:8500" DeploymentId="TexasPoker">
+    </SystemStore>
+    <StorageProviders>
+      <Provider Type="Orleans.Storage.MemoryStorage" Name="MemoryStore" />
+      <Provider Type="Orleans.Storage.MemoryStorage" Name="PubSubStore" />
+      <Provider Type="Orleans.Storage.MongoDBStorage" Name="MongoDBStore"
+        Database="db-name" ConnectionString="mongodb://YOURHOSTNAME:27017/" />
+      <!-- To use Azure storage, uncomment one of the following lines: -->
+      <!--<Provider Type="Orleans.Storage.AzureTableStorage" Name="AzureStore" DataConnectionString="UseDevelopmentStorage=true" />-->
+      <!--<Provider Type="Orleans.Storage.AzureTableStorage" Name="AzureStore" DataConnectionString="DefaultEndpointsProtocol=https;AccountName=MYACCOUNTNAME;AccountKey=MYACCOUNTKEY" />-->
+    </StorageProviders>
+    <StreamProviders>
+      <Provider Type="Orleans.Providers.Streams.SimpleMessageStream.SimpleMessageStreamProvider" Name="SMSProvider" FireAndForgetDelivery="true"/>
+      <!--<Provider Type="Orleans.Providers.Streams.AzureQueue.AzureQueueStreamProvider" Name="AzureQueueProvider"/>-->
+    </StreamProviders>
+    <!--
+    <BootstrapProviders>
+      <Provider Type="Ps.OrleansBootstrap4Cell" Name="OrleansBootstrap4Cell" />
+    </BootstrapProviders>
+    -->
+  </Globals>
+  <Defaults>
+    <Networking Address="localhost" Port="11111" />
+    <ProxyingGateway Address="localhost" Port="30000" />
+    <Tracing DefaultTraceLevel="Info" TraceToConsole="true" TraceToFile="{0}-{1}.log" BulkMessageLimit="1000">
+      <TraceLevelOverride LogPrefix="Application" TraceLevel="Info" />
+      <!--
+      <TraceLevelOverride LogPrefix="Runtime.MembershipOracle" TraceLevel="Verbose" />
+      <TraceLevelOverride LogPrefix="Runtime.Dispatcher" TraceLevel="Verbose" />
+      <TraceLevelOverride LogPrefix="AssemblyLoader.Silo" TraceLevel="Warning" />
+      -->
+    </Tracing>
+    <Statistics MetricsTableWriteInterval="30s" PerfCounterWriteInterval="30s"
+      LogWriteInterval="300s" WriteLogStatisticsToTable="true" StatisticsCollectionLevel="Info"/>
+  </Defaults>
+</OrleansConfiguration>
